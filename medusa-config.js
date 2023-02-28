@@ -1,4 +1,4 @@
-//eeeelo
+//elo
 const dotenv = require('dotenv')
 
 let ENV_FILE_NAME = '';
