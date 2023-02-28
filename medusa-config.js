@@ -57,13 +57,14 @@ const plugins = [
   {
     resolve: `medusa-file-spaces`,
     options: {
-        spaces_url: "https://cinu.fra1.digitaloceanspaces.com",
-        bucket: "cinu",
-        endpoint: "fra1.digitaloceanspaces.com",
-        access_key_id: "DO00WU2HMMMCPBWUJWH9",
-        secret_access_key: "1PtWXSEsV/JdYPAhmxdLJU2b55D4PgQHMuQ51zhefS0",
+        spaces_url: process.env.SPACE_URL,
+        bucket: process.env.SPACE_BUCKET,
+        endpoint: process.env.SPACE_ENDPOINT,
+        access_key_id: process.env.SPACE_ACCESS_KEY_ID,
+        secret_access_key: process.env.SPACE_SECRET_ACCESS_KEY,
     },
   },
+  
 ];
 
 module.exports = {
