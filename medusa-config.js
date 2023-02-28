@@ -24,10 +24,10 @@ try {
 }
 
 // CORS when consuming Medusa from admin
-const ADMIN_CORS = process.env.ADMIN_CORS || "https://admin.przykladowy.info";
+const ADMIN_CORS = process.env.ADMIN_CORS || "http://localhost:7000,http://localhost:7001";
 
 // CORS to avoid issues when consuming Medusa from a client
-const STORE_CORS = process.env.STORE_CORS || "https://sklep.przykladowy.info";
+const STORE_CORS = process.env.STORE_CORS || "http://localhost:8000";
 
 // Database URL (here we use a local database called medusa-development)
 const DATABASE_URL =
@@ -39,6 +39,7 @@ const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 // Stripe keys
 const STRIPE_API_KEY = process.env.STRIPE_API_KEY || "";
 const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || "";
+
 
 // This is the place to include plugins. See API documentation for a thorough guide on plugins.
 const plugins = [
@@ -56,23 +57,23 @@ const plugins = [
   {
     resolve: `medusa-file-spaces`,
     options: {
-        spaces_url: process.env.SPACE_URL,
-        bucket: process.env.SPACE_BUCKET,
-        endpoint: process.env.SPACE_ENDPOINT,
-        access_key_id: process.env.SPACE_ACCESS_KEY_ID,
-        secret_access_key: process.env.SPACE_SECRET_ACCESS_KEY,
+        spaces_url: "https://cinu.fra1.digitaloceanspaces.com",
+        bucket: "cinu",
+        endpoint: "fra1.digitaloceanspaces.com",
+        access_key_id: "DO00WU2HMMMCPBWUJWH9",
+        secret_access_key: "1PtWXSEsV/JdYPAhmxdLJU2b55D4PgQHMuQ51zhefS0",
     },
   },
 ];
 
 module.exports = {
   projectConfig: {
-  redis_url: REDIS_URL,
+  //redis_url: REDIS_URL,
     // For more production-like environment install PostgresQL
-database_url: DATABASE_URL,
- database_type: "postgres",
-  //  database_database: "./medusa-db.sql",
-   // database_type: "sqlite",
+//database_url: DATABASE_URL,
+ //database_type: "postgres",
+    database_database: "./medusa-db.sql",
+   database_type: "sqlite",
     store_cors: STORE_CORS,
     admin_cors: ADMIN_CORS,
   },
